@@ -7,11 +7,20 @@ package com.ijrobotics.mir100client;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.ijrobotics.mir100client.MIR.GET.Mission;
 import com.ijrobotics.mir100client.MIR.GET.Register;
 import com.ijrobotics.mir100client.MIR.GET.Status;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  *
@@ -19,32 +28,75 @@ import java.util.List;
  */
 public class MIR100Client {
     
-    RESTClient client;
+    StringProperty  host;
+    StringProperty  authorization;
+    Client client;
+    WebTarget baseURL;
     
     public MIR100Client(){
-        client = new RESTClient();
-        client.setHost("192.168.1.79");
-        client.setAuthorization("YWRtaW46OGM2OTc2ZTViNTQxMDQxNWJkZTkwOGJkNGRlZTE1ZGZiMTY3YTljODczZmM0YmI4YTgxZjZmMmFiNDQ4YTkxOA==");
+        this(null,null);
     }
     
-    private Status getStatus(){
-        Status status = new Gson().fromJson(client.simpleGET("status"), Status.class);
+    public MIR100Client(String _host, String _authorization){
+        this.host = new SimpleStringProperty(_host);
+        this.authorization = new SimpleStringProperty(_authorization);
+        //Client Configuration
+        this.client = ClientBuilder.newClient();
+        System.setProperty("sun.net.http.allowRestrictedHeaders", "true");
+    }
+    
+    public void setHost(String _host){
+        host.set(_host);
+    }
+    
+    public String getHost(){
+        return host.get();
+    }
+    
+    public void setAuthorization(String _authorization){
+        authorization.set(_authorization);
+    }
+    
+    public String getAuthorization(){
+        return authorization.get();
+    }
+    
+    private Invocation.Builder baseReq(String path){
+        baseURL = client.target("http://"+host.get()+"/api/v2.0.0");
+        WebTarget target = baseURL.path(path);
+        Invocation.Builder invocationBuilder = target.request(MediaType.APPLICATION_JSON);
+        invocationBuilder.header("Content-Type", "application/json");
+        invocationBuilder.header("Accept-Language", "en_US");
+        invocationBuilder.header("Host", host.get()+":8080");
+        invocationBuilder.header("Authorization", "Basic "+authorization.get());
+        return invocationBuilder;
+    }
+    
+    private String simpleGET(String endPoint){
+        Response response = baseReq(endPoint).get();
+        return response.readEntity(String.class);
+    }
+    
+    public Status getStatus(){
+        Status status = new Gson().fromJson(simpleGET("status"), Status.class);
         return status;
     }
     
     public List<Register> getRegisters(){
         Type targetClassType = new TypeToken<ArrayList<Register>>() { }.getType();
-        List<Register> registers = new Gson().fromJson(client.simpleGET("registers"), targetClassType);
+        List<Register> registers = new Gson().fromJson(simpleGET("registers"), targetClassType);
         return registers;
     }
     
-    public static void main(String args[]){
-        MIR100Client mirClient = new MIR100Client();
-        mirClient.getRegisters().forEach(register -> {
-            System.out.println(register.getId());
-            System.out.println(register.getValue());
-            System.out.println();
-        });
-        32323
+    public List<Mission> getMissions(){
+        Type targetClassType = new TypeToken<ArrayList<Mission>>() { }.getType();
+        List<Mission> missions = new Gson().fromJson(simpleGET("missions"), targetClassType);
+        return missions;
     }
+    
+    public Mission getMission(String guid){
+        Mission mission = new Gson().fromJson(simpleGET("missions/"+guid), Mission.class);
+        return mission;
+    }
+    
 }

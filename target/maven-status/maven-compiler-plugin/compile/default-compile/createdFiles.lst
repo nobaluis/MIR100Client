@@ -1,5 +1,10 @@
-com\ijrobotics\gsonexample\MIR\GET\Position.class
-com\ijrobotics\gsonexample\GsonExample.class
-com\ijrobotics\gsonexample\MIR\GET\Velocity.class
-com\ijrobotics\gsonexample\MIR\GET\Status.class
-com\ijrobotics\gsonexample\MIR\MIRClient.class
+com\ijrobotics\mir100client\MIR100Client$2.class
+com\ijrobotics\mir100client\MIR\GET\Velocity.class
+com\ijrobotics\mir100client\MIR\GET\Register.class
+com\ijrobotics\mir100client\MIR100Client.class
+com\ijrobotics\mir100client\MIR\GET\Status.class
+com\ijrobotics\mir100client\MIR\GET\Position.class
+com\ijrobotics\mir100client\RESTClient.class
+com\ijrobotics\mir100client\MIR100Client$1.class
+com\ijrobotics\mir100client\MIR\GET\Error.class
+com\ijrobotics\mir100client\MIR\GET\Mission.class

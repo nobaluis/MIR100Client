@@ -1,5 +1,8 @@
-C:\Users\Software-01\Documents\NetBeansProjects\GsonExample\src\main\java\com\ijrobotics\gsonexample\MIR\GET\Position.java
-C:\Users\Software-01\Documents\NetBeansProjects\GsonExample\src\main\java\com\ijrobotics\gsonexample\GsonExample.java
-C:\Users\Software-01\Documents\NetBeansProjects\GsonExample\src\main\java\com\ijrobotics\gsonexample\MIR\GET\Velocity.java
-C:\Users\Software-01\Documents\NetBeansProjects\GsonExample\src\main\java\com\ijrobotics\gsonexample\MIR\GET\Status.java
-C:\Users\Software-01\Documents\NetBeansProjects\GsonExample\src\main\java\com\ijrobotics\gsonexample\MIR\MIRClient.java
+C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR\GET\Register.java
+C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR\GET\Status.java
+C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR100Client.java
+C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR\GET\Error.java
+C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\RESTClient.java
+C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR\GET\Mission.java
+C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR\GET\Velocity.java
+C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR\GET\Position.java
