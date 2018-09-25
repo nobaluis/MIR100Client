@@ -9,28 +9,18 @@ package com.ijrobotics.mir100client.MIR.GET;
  *
  * @author Software-01
  */
-public class Position {
+public class Map {
     
     private String guid;
-    private String map;
     private String name;
-    private int type_id;
     private String url;
 
     public String getGuid() {
         return guid;
     }
 
-    public String getMap() {
-        return map;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public int getType_id() {
-        return type_id;
     }
 
     public String getUrl() {

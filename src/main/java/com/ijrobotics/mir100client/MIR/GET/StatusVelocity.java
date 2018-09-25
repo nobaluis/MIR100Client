@@ -5,28 +5,22 @@
  */
 package com.ijrobotics.mir100client.MIR.GET;
 
+
 /**
  *
  * @author Software
  */
-public class Error{
+public class StatusVelocity {
     
-    private int code;
-    private String description;
-    private String module;
+    private float angular;
+    private float linear;
 
-    public int getCode() {
-        return code;
+    public float getAngular() {
+        return angular;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public String getModule() {
-        return module;
+    public float getLinear() {
+        return linear;
     }
     
-    
-  
 }

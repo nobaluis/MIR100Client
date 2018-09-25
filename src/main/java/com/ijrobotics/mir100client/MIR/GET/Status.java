@@ -15,7 +15,7 @@ public class Status {
     private float battery_percentage;
     private int battery_time_remaining;
     private float distance_to_next_target;
-    private Error errors[];
+    private StatusError errors[];
     private String footprint;
     private String map_id;
     private int mission_queue_id;
@@ -24,7 +24,7 @@ public class Status {
     private int mode_id;
     private String mode_text;
     private float moved;
-    private Position position;
+    private StatusPosition position;
     private String robot_model;
     private String robot_name;
     private String serial_number;
@@ -34,7 +34,7 @@ public class Status {
     private boolean unloaded_map_changes;
     private int uptime;
     private String user_prompt;
-    private Velocity velocity;
+    private StatusVelocity velocity;
 
     public String getAllowed_methods() {
         return allowed_methods;
@@ -52,7 +52,7 @@ public class Status {
         return distance_to_next_target;
     }
 
-    public Error[] getErrors() {
+    public StatusError[] getErrors() {
         return errors;
     }
 
@@ -88,7 +88,7 @@ public class Status {
         return moved;
     }
 
-    public Position getPosition() {
+    public StatusPosition getPosition() {
         return position;
     }
 
@@ -128,11 +128,9 @@ public class Status {
         return user_prompt;
     }
 
-    public Velocity getVelocity() {
+    public StatusVelocity getVelocity() {
         return velocity;
     }
-    
-    
-    
+        
     
 }

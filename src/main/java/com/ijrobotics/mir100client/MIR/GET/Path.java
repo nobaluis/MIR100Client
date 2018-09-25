@@ -9,28 +9,23 @@ package com.ijrobotics.mir100client.MIR.GET;
  *
  * @author Software-01
  */
-public class Position {
+public class Path {
     
+    private String goal_pos;
     private String guid;
-    private String map;
-    private String name;
-    private int type_id;
+    private String start_pos;
     private String url;
+
+    public String getGoal_pos() {
+        return goal_pos;
+    }
 
     public String getGuid() {
         return guid;
     }
 
-    public String getMap() {
-        return map;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getType_id() {
-        return type_id;
+    public String getStart_pos() {
+        return start_pos;
     }
 
     public String getUrl() {

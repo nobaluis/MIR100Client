@@ -5,22 +5,26 @@
  */
 package com.ijrobotics.mir100client.MIR.GET;
 
-
 /**
  *
  * @author Software
  */
-public class Velocity {
+public class StatusPosition{
     
-    private float angular;
-    private float linear;
+    private float orientation;
+    private float x;
+    private float y;
 
-    public float getAngular() {
-        return angular;
+    public float getOrientation() {
+        return orientation;
     }
 
-    public float getLinear() {
-        return linear;
+    public float getX() {
+        return x;
     }
-    
+
+    public float getY() {
+        return y;
+    }
+      
 }

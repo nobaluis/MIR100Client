@@ -8,6 +8,9 @@ package com.ijrobotics.mir100client;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.ijrobotics.mir100client.MIR.GET.Mission;
+import com.ijrobotics.mir100client.MIR.GET.MissionQueue;
+import com.ijrobotics.mir100client.MIR.GET.Path;
+import com.ijrobotics.mir100client.MIR.GET.Position;
 import com.ijrobotics.mir100client.MIR.GET.Register;
 import com.ijrobotics.mir100client.MIR.GET.Status;
 import java.lang.reflect.Type;
@@ -99,4 +102,26 @@ public class MIR100Client {
         return mission;
     }
     
+    public List<MissionQueue> getMissionQueues(){
+        Type targetClassType = new TypeToken<ArrayList<MissionQueue>>() { }.getType();
+        List<MissionQueue> missionQueues = new Gson().fromJson(simpleGET("mission_queue"), targetClassType);
+        return missionQueues;
+    }
+    
+    public MissionQueue getMission(int id){
+        MissionQueue missionQueue = new Gson().fromJson(simpleGET("mission_queue/"+id), MissionQueue.class);
+        return missionQueue;
+    }
+    
+    public List<Path> getPaths(){
+        Type targetClassType = new TypeToken<ArrayList<Path>>() { }.getType();
+        List<Path> paths = new Gson().fromJson(simpleGET("paths"), targetClassType);
+        return paths;
+    }
+    
+    public List<Position> getPositions(){
+        Type targetClassType = new TypeToken<ArrayList<Position>>() { }.getType();
+        List<Position> positions = new Gson().fromJson(simpleGET("positions"), targetClassType);
+        return positions;
+    }
 }
