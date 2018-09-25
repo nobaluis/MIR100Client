@@ -1,0 +1,5 @@
+com\ijrobotics\gsonexample\MIR\GET\Position.class
+com\ijrobotics\gsonexample\GsonExample.class
+com\ijrobotics\gsonexample\MIR\GET\Velocity.class
+com\ijrobotics\gsonexample\MIR\GET\Status.class
+com\ijrobotics\gsonexample\MIR\MIRClient.class
