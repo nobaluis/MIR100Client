@@ -31,6 +31,21 @@ public class Register {
     public int getValue() {
         return value;
     }
-    
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }  
    
 }

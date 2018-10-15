@@ -95,5 +95,69 @@ public class MissionQueue {
     public String getStarted() {
         return started;
     }
-        
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public void setIrl(String irl) {
+        this.irl = irl;
+    }
+
+    public void setControl_posid(String control_posid) {
+        this.control_posid = control_posid;
+    }
+
+    public void setControl_state(int control_state) {
+        this.control_state = control_state;
+    }
+
+    public void setCreated_by(String created_by) {
+        this.created_by = created_by;
+    }
+
+    public void setCreated_by_id(String created_by_id) {
+        this.created_by_id = created_by_id;
+    }
+
+    public void setCreated_by_name(String created_by_name) {
+        this.created_by_name = created_by_name;
+    }
+
+    public void setFinished(String finished) {
+        this.finished = finished;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setMission(String mission) {
+        this.mission = mission;
+    }
+
+    public void setMission_id(String mission_id) {
+        this.mission_id = mission_id;
+    }
+
+    public void setOrdered(String ordered) {
+        this.ordered = ordered;
+    }
+
+    public void setParameters(MissionQueueParameter[] parameters) {
+        this.parameters = parameters;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
+    public void setStarted(String started) {
+        this.started = started;
+    }
+            
 }

@@ -6,6 +6,7 @@
 package com.ijrobotics.mir100client;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.ijrobotics.mir100client.MIR.GET.Mission;
 import com.ijrobotics.mir100client.MIR.GET.MissionQueue;
@@ -13,6 +14,8 @@ import com.ijrobotics.mir100client.MIR.GET.Path;
 import com.ijrobotics.mir100client.MIR.GET.Position;
 import com.ijrobotics.mir100client.MIR.GET.Register;
 import com.ijrobotics.mir100client.MIR.GET.Status;
+import com.ijrobotics.mir100client.POST.MissionQueuePayload;
+import com.ijrobotics.mir100client.POST.RegisterPayload;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +23,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
@@ -75,10 +79,22 @@ public class MIR100Client {
         return invocationBuilder;
     }
     
-    private String simpleGET(String endPoint){
+    public String simpleGET(String endPoint){
         Response response = baseReq(endPoint).get();
         return response.readEntity(String.class);
     }
+    
+    public String getSerialization(Type type, Object typeAdapter, Object toSerialize){
+        GsonBuilder gsonBuildr = new GsonBuilder();
+        gsonBuildr.registerTypeAdapter(type, typeAdapter);
+        String jsonString = gsonBuildr.create().toJson(toSerialize);
+        return jsonString;
+    }
+    
+    public String simplePOST(String endPoint, String payload){
+        Response response = baseReq(endPoint).post(Entity.json(payload));
+        return response.readEntity(String.class);
+    } 
     
     public Status getStatus(){
         Status status = new Gson().fromJson(simpleGET("status"), Status.class);
@@ -89,6 +105,11 @@ public class MIR100Client {
         Type targetClassType = new TypeToken<ArrayList<Register>>() { }.getType();
         List<Register> registers = new Gson().fromJson(simpleGET("registers"), targetClassType);
         return registers;
+    }
+    
+    public Register getRegister(int id){
+        Register register  = new Gson().fromJson(simpleGET("registers/"+id), Register.class);
+        return register;
     }
     
     public List<Mission> getMissions(){
@@ -107,8 +128,8 @@ public class MIR100Client {
         List<MissionQueue> missionQueues = new Gson().fromJson(simpleGET("mission_queue"), targetClassType);
         return missionQueues;
     }
-    
-    public MissionQueue getMission(int id){
+        
+    public MissionQueue getMissionQueue(int id){
         MissionQueue missionQueue = new Gson().fromJson(simpleGET("mission_queue/"+id), MissionQueue.class);
         return missionQueue;
     }
@@ -124,4 +145,24 @@ public class MIR100Client {
         List<Position> positions = new Gson().fromJson(simpleGET("positions"), targetClassType);
         return positions;
     }
+    
+    public Position getposition(String guid){
+        Position position = new Gson().fromJson(simpleGET("positions/"+guid), Position.class);
+        return position;
+    }
+    
+    public Register setRegister(Register register){
+        String payload = getSerialization(Register.class, new RegisterPayload(), register);
+        String response = simplePOST("registers/"+register.getId(),payload);
+        Register newRegister = new Gson().fromJson(response, Register.class);
+        return newRegister;
+    }
+    
+    public MissionQueue setMissionQueue(MissionQueue mission){
+        String payload = getSerialization(MissionQueue.class, new MissionQueuePayload(), mission);
+        String response = simplePOST("mission_queue",payload);
+        MissionQueue newMission = new Gson().fromJson(response, MissionQueue.class);
+        return newMission;
+    }
+    
 }
