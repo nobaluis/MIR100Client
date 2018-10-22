@@ -1,8 +1,12 @@
+C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR\GET\MissionQueue.java
+C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR\GET\StatusError.java
 C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR\GET\Register.java
+C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR\GET\Path.java
 C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR\GET\Status.java
 C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR100Client.java
-C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR\GET\Error.java
-C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\RESTClient.java
+C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR\GET\Map.java
+C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR\GET\StatusPosition.java
 C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR\GET\Mission.java
-C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR\GET\Velocity.java
+C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR\GET\StatusVelocity.java
+C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR\GET\MissionQueueParameter.java
 C:\Users\Software-01\Documents\NetBeansProjects\MIR100Client\src\main\java\com\ijrobotics\mir100client\MIR\GET\Position.java
