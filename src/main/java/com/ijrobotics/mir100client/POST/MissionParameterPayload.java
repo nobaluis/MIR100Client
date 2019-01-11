@@ -21,6 +21,7 @@ public class MissionParameterPayload implements JsonSerializer<MissionQueueParam
     @Override
     public JsonElement serialize(MissionQueueParameter src, Type typeOfSrc, JsonSerializationContext context) {
         JsonObject jObject = new JsonObject();
+        jObject.addProperty("id", src.getId());
         jObject.addProperty("input_name", src.getLabel());
         jObject.addProperty("value", src.getValue());
         return jObject;
