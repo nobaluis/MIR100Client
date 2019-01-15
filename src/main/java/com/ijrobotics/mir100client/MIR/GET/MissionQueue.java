@@ -159,5 +159,9 @@ public class MissionQueue {
     public void setStarted(String started) {
         this.started = started;
     }
-            
+
+    @Override
+    public String toString() {
+        return "MissionQueue{" + "id=" + id + ", state=" + state + ", irl=" + irl + ", control_posid=" + control_posid + ", control_state=" + control_state + ", created_by=" + created_by + ", created_by_id=" + created_by_id + ", created_by_name=" + created_by_name + ", finished=" + finished + ", message=" + message + ", mission=" + mission + ", mission_id=" + mission_id + ", ordered=" + ordered + ", parameters=" + parameters + ", priority=" + priority + ", started=" + started + '}';
+    }            
 }
